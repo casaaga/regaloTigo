@@ -1,0 +1,36 @@
+<style>
+    iframe{
+        width: 976px;
+        height: 1150px;
+    }
+</style>
+<iframe src="http://promocionestigo.com/report-tigo/bonoRegalo/index2.html" frameborder="0"></iframe>
+
+
+<script>
+        var $ = jQuery;
+
+        $(document).ready(function(){
+
+            var resize = $(window).resize(function(){
+                if ($(window).width() < 500){
+
+                    console.log('menos de 500')
+                    $('iframe').css('width','3000');
+
+                } if ($(window).width() >= 500){
+
+                    console.log('mas de 500')
+                    $('iframe').css('width','1200');
+                };
+        });
+    });
+</script>
+
+
+
+<div class="bonoRegalo">&nbsp;</div><script>
+     var $ = jQuery;
+
+     $('.bonoRegalo').load('http://promocionestigo.com/report-tigo/bonoRegalo/index2.html')
+</script>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        <style>
+                #track {
+              -webkit-appearance: none;
+              -moz-apperance: none;
+              border-radius: 6px;
+              height: 6px;
+              vertical-align: middle;
+              background-image: -webkit-gradient(
+                linear,
+                left top,
+                right top,
+                color-stop(0, #c0392b),
+                color-stop(0, #ecf0f1)
+              );
+              outline: none;
+            }
+
+            #track::-webkit-slider-thumb {
+              -webkit-appearance: none !important;
+              background-color: #E9E9E9;
+              border: 1px solid #CECECE;
+              height: 15px;
+              width: 15px;
+              border-radius: 50%;
+            }
+            #volume {
+              -webkit-appearance: none;
+              -moz-apperance: none;
+              border-radius: 6px;
+              height: 6px;
+              background-image: -webkit-gradient(
+                linear,
+                left top,
+                right top,
+                color-stop(0, #7f8c8d),
+                color-stop(0, #cecece)
+              );
+              outline: none;
+              vertical-align: middle;
+            }
+
+            #volume::-webkit-slider-thumb {
+              -webkit-appearance: none !important;
+              background-color: #E9E9E9;
+              border: 1px solid #CECECE;
+              height: 15px;
+              width: 15px;
+              border-radius: 50%;
+            }
+            #toggleplay {
+              width: 100%;
+              height: 30px;
+              vertical-align: middle;
+              padding: 5px;
+            }
+</style>
+    </style>
+</head>
+<body>
+    <div id="box_bonoRegalo">
+        <div class="videoBono">
+            <!-- <div><img src="images/headerBG.png" alt=""></div> -->
+            <div id="player" class="bonoRegalo"></div>
+            <div class="headerFinales">
+                <ul>
+                    <li class="video2"><a href="#">Pinchame</a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="headerFinalesMB">
+                <ul>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+                <button id="toggleplay">Play</button>
+                <input id="track" type="range" min="1" max="100" value="0" step="0.10" style="width:100%" />
+                <span id="time">00:00</span>
+                <input id="volume" type="range" min="1" max="100" value="0" style="width:100%" />
+
+            <div class="headerContent">
+                <h2>En Tigo tú eliges</h2>
+                <h3>el bono regalo que quieres</h3>
+                <p>Mira el video y escoge un bono regalo para ayudar a rescatar a Riaño y Quevedo.</p>
+                <a href="#" >VER VIDEO</a>
+                <p>Por favor, ejecute el sitio en Chrome o Safari para ver el vídeo interactivo completo </p>
+            </div>
+        </div>
+        <div class="articleBono">
+            <img src="images/contentHand.png" alt="" class="imgHand" >
+            <div class="contentTxt">
+                <img src="images/contentTittle.png" alt="">
+                <p>Recibes más que la recarga</p>
+                <p>• Hablar (minutos o segundos)
+                • Navegar (datos)
+                • Mensajear (sms)
+                </p>
+                <p>Reclama tu bono entrando al menú de ofertas *111# y haz que tu saldo rinda.</p>
+                <p>
+                    • Hablar (minutos o segundos)
+                    • Navegar (datos)
+                    • Mensajear (sms)
+
+                </p>
+                <p>
+                    Reclama tu bono entrando al menú de ofertas *111# y haz que tu saldo rinda.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://www.youtube.com/player_api"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.headerContent a').click(function(){
+                console.log('Me tocaste')
+                player.playVideo();
+
+                $('.headerContent').fadeOut().animate(function(){
+                    left: 0
+                },1000);
+
+                event.preventDefault();
+            });
+
+
+            jQuery('#overlay').click(function(){
+                  jQuery(this).hide();
+                    jQuery('#youtube_id').get(0).playVideo();
+                });
+        });
+    </script>
+</body>
+</html>

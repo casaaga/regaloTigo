@@ -1,0 +1,75 @@
+<!-- We specify the various video parameters in a DIV tag -->
+
+<div videoID="gI72iPWTSRc" startTime="10" endTime="30"
+     height="309" width="550" id="youtube-player">
+</div>
+
+<script>
+
+  /*
+
+  YouTube Embed Code
+
+  Author:   Amit Agarwal
+  Blog:     www.labnol.org
+  Date:     04/15/2013
+
+  */
+
+  var node = "youtube-player";
+
+  // Append the YouTube IFRAME API Script
+  var youtube = document.createElement('script');
+  youtube.type = "text/javascript";
+  youtube.src = "//www.youtube.com/iframe_api";
+
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(youtube, s);
+
+  var player;
+
+  // Read all the parameter of the DIV tag
+  var params = document.getElementById(node);
+
+  var startTime = params.getAttribute("startTime");
+  var endTime = params.getAttribute("endTime");
+  var videoID = params.getAttribute("videoID");
+  var playerHeight = params.getAttribute("height");
+  var playerWidth = params.getAttribute("width");
+
+
+  // Prepare the YouTube Player
+  // We set rel=0 and showinfo=1 to hide related videos & info bar
+
+
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player(node, {
+      height: playerHeight,
+      width: playerWidth,
+      playerVars: {
+          controls: 1,
+          showinfo: 0,
+          iv_load_policy: 0,
+          cc_load_policy: 0,
+          rel: 0
+        },
+        events: {
+          // 'onStateChange': videostatus,
+          // 'onReady': playerReady
+          'onReady': loadVideo,
+        }
+    });
+  }
+
+  // When the player is ready, we load the video
+  // Using cueVideoById and not loadVideoById as the
+  // former function will not autoplay the video.
+  function loadVideo(e) {
+    e.target.cueVideoById({
+      videoId: videoID,
+      startSeconds: startTime,
+      endSeconds: endTime
+    });
+  }
+
+</script>

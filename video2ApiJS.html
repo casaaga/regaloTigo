@@ -1,0 +1,40 @@
+
+<!-- <script src="http://www.youtube.com/apiplayer?enablejsapi=1&version=3"></script> -->
+ <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script> -->
+ <script type="text/javascript" src="js/swfobject.js"></script>
+  <div id="ytapiplayer">
+    You need Flash player 8+ and JavaScript enabled to view this video.
+  </div>
+
+  <a href="#" id="btn">hola mama</a>
+
+<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+  <script type="text/javascript">
+
+    var params = { allowScriptAccess: "always" };
+    var atts = { id: "myytplayer" };
+    swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1&version=3",
+                       "ytapiplayer", "725", "356", "8", null, null, params, atts);
+
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+          width: '682',
+          height: '383',
+          videoId: 'l-gQLqv9f4o',
+          playerVars: {
+          'controls' : 0,
+          'modestbranding' : 1,
+          'rel' : 0,
+          'showinfo' : 0
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+
+  </script>
